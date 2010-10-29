@@ -1,0 +1,3 @@
+[submodule "TNKit"]
+	path = TNKit
+	url = git@github.com:primalmotion/TNKit.git
