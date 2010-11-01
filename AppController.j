@@ -92,14 +92,14 @@
 
 - (IBAction)showQuickEditView:(id)sender
 {
-    var quickEditView = [[TNQuickEditView alloc] initWithFrame:CPRectMake(0.0, 0.0, 200.0, 150.0)],
+    var quickEditView = [[TNQuickEditWindow alloc] initWithContentRect:CPRectMake(0.0, 0.0, 200.0, 150.0)],
         label = [CPTextField labelWithTitle:@"Hello World!"];
 
     [label sizeToFit];
-    [label setCenter:[quickEditView center]];
-    [quickEditView addSubview:label];
+    [label setCenter:[[quickEditView contentView] center]];
+    [[quickEditView contentView] addSubview:label];
     
-    [quickEditView attachToView:sender];
+    [quickEditView attachToView:scrollViewTable];
 }
 
 
