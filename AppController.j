@@ -14,6 +14,7 @@
 {
     @outlet CPWindow            theWindow;
     @outlet CPButton            buttonShowQuickEditView;
+    @outlet CPButton            buttonShowQuickEditView2;
     @outlet CPTextField         title;
     @outlet CPTextField         fieldUserDefault;
     @outlet TNTextFieldStepper  stepper;
@@ -93,13 +94,25 @@
 - (IBAction)showQuickEditView:(id)sender
 {
     var quickEditView = [[TNQuickEditWindow alloc] initWithContentRect:CPRectMake(0.0, 0.0, 200.0, 150.0)],
-        label = [CPTextField labelWithTitle:@"Hello World!"];
+        label = [CPTextField labelWithTitle:@"This is the title. Great isn't it?"];
 
     [label sizeToFit];
     [label setCenter:[[quickEditView contentView] center]];
     [[quickEditView contentView] addSubview:label];
     
-    [quickEditView attachToView:scrollViewTable];
+    [quickEditView attachToView:sender];
+}
+
+- (IBAction)showQuickEditViewOnTitle:(id)sender
+{
+    var quickEditView = [[TNQuickEditWindow alloc] initWithContentRect:CPRectMake(0.0, 0.0, 200.0, 150.0)],
+        label = [CPTextField labelWithTitle:@"Hello World"];
+
+    [label sizeToFit];
+    [label setCenter:[[quickEditView contentView] center]];
+    [[quickEditView contentView] addSubview:label];
+    
+    [quickEditView attachToView:title];
 }
 
 

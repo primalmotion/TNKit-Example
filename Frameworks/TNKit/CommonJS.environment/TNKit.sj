@@ -244,10 +244,9 @@ objj_msgSend(_contents,"sortUsingDescriptors:",objj_msgSend(_4b,"sortDescriptors
 objj_msgSend(_4b,"reloadData");
 }
 })]);
-p;19;TNQuickEditWindow.jt;5813;@STATIC;1.0;I;23;Foundation/Foundation.jI;15;AppKit/AppKit.jt;5746;
+p;19;TNQuickEditWindow.jt;5962;@STATIC;1.0;I;23;Foundation/Foundation.jI;15;AppKit/AppKit.jt;5895;
 objj_executeFile("Foundation/Foundation.j",NO);
 objj_executeFile("AppKit/AppKit.j",NO);
-TNQuickEditWindowPadding=20;
 var _1=objj_allocateClassPair(CPWindow,"TNQuickEditWindow"),_2=_1.isa;
 class_addIvars(_1,[new objj_ivar("_cursorView"),new objj_ivar("_closeButton"),new objj_ivar("_targetView")]);
 objj_registerClassPair(_1);
@@ -289,30 +288,37 @@ objj_msgSend(_cursorView,"setHidden:",YES);
 }
 }),new objj_method(sel_getUid("positionRelativeToView:"),function(_13,_14,_15){
 with(_13){
-var _16=objj_msgSend(_15,"frame"),_17=_16.origin.x+CPRectGetWidth(_16),_18=_16.origin.y+(CPRectGetHeight(_16)/2)-(CPRectGetHeight(objj_msgSend(_13,"frame"))/2),_19=objj_msgSend(_15,"convertPoint:toView:",CPPointMake(0,0),nil);
+var _16=objj_msgSend(_15,"frame"),_17=_16.origin.x+CPRectGetWidth(_16),_18=_16.origin.y+(CPRectGetHeight(_16)/2)-(CPRectGetHeight(objj_msgSend(_13,"frame"))/2),_19=objj_msgSend(_15,"convertPoint:toView:",CPPointMake(0,0),nil),_1a=CPPointCreateCopy(_19),_1b=0;
 _19.x+=CPRectGetWidth(_16);
 _19.y+=(CPRectGetHeight(_16)/2)-(CPRectGetHeight(objj_msgSend(_13,"frame"))/2);
+if(_19.y<0){
+_1b=_19.y;
+_19.y=0;
+var _1c=objj_msgSend(_cursorView,"frameOrigin");
+_1c.y+=_1b;
+objj_msgSend(_cursorView,"setFrameOrigin:",_1c);
+}
 objj_msgSend(_13,"setFrameOrigin:",_19);
 objj_msgSend(_13,"makeKeyAndOrderFront:",nil);
 }
-}),new objj_method(sel_getUid("attachToView:"),function(_1a,_1b,_1c){
-with(_1a){
-_targetView=_1c;
-objj_msgSend(_1a,"positionRelativeToView:",_targetView);
-}
-}),new objj_method(sel_getUid("close:"),function(_1d,_1e,_1f){
+}),new objj_method(sel_getUid("attachToView:"),function(_1d,_1e,_1f){
 with(_1d){
-objj_msgSend(_1d,"close");
+_targetView=_1f;
+objj_msgSend(_1d,"positionRelativeToView:",_targetView);
+}
+}),new objj_method(sel_getUid("close:"),function(_20,_21,_22){
+with(_20){
+objj_msgSend(_20,"close");
 if(_delegate&&objj_msgSend(_delegate,"respondsToSelected:",sel_getUid("didQuickEditViewClose:"))){
-objj_msgSend(_delegate,"didQuickEditViewClose:",_1d);
+objj_msgSend(_delegate,"didQuickEditViewClose:",_20);
 }
 }
 })]);
-class_addMethods(_2,[new objj_method(sel_getUid("quickEditViewWithSize:forView:"),function(_20,_21,_22,_23){
-with(_20){
-var _24=objj_msgSend(objj_msgSend(TNQuickEditWindow,"alloc"),"initWithFrame:",CPRectMake(0,0,_22.width,_22.height));
-objj_msgSend(_24,"attachToView:",_23);
-return _24;
+class_addMethods(_2,[new objj_method(sel_getUid("quickEditViewWithSize:forView:"),function(_23,_24,_25,_26){
+with(_23){
+var _27=objj_msgSend(objj_msgSend(TNQuickEditWindow,"alloc"),"initWithFrame:",CPRectMake(0,0,_25.width,_25.height));
+objj_msgSend(_27,"attachToView:",_26);
+return _27;
 }
 })]);
 p;23;TNTableViewDataSource.jt;6104;@STATIC;1.0;t;6085;
