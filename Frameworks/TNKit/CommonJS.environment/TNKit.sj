@@ -307,7 +307,7 @@ objj_msgSend(_contents,"sortUsingDescriptors:",objj_msgSend(_4b,"sortDescriptors
 objj_msgSend(_4b,"reloadData");
 }
 })]);
-p;19;TNQuickEditWindow.jt;10031;@STATIC;1.0;I;23;Foundation/Foundation.jI;15;AppKit/AppKit.jt;9964;
+p;19;TNQuickEditWindow.jt;10083;@STATIC;1.0;I;23;Foundation/Foundation.jI;15;AppKit/AppKit.jt;10015;
 objj_executeFile("Foundation/Foundation.j",NO);
 objj_executeFile("AppKit/AppKit.j",NO);
 TNQuickEditWindowGravityUp=0;
@@ -435,6 +435,7 @@ return _20;
 with(_25){
 if(_leftMouseDownView){
 objj_msgSend(_cursorView,"setHidden:",YES);
+objj_msgSend(_25,"setLevel:",CPNormalWindowLevel);
 }
 }
 }),new objj_method(sel_getUid("positionRelativeToView:"),function(_28,_29,_2a){
