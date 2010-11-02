@@ -218,7 +218,7 @@ objj_msgSend(_cursorView,"setFrame:",CPRectMake(CPRectGetWidth(objj_msgSend(_16,
 objj_msgSend(_cursorView,"setImage:",_cursorBackgroundTop);
 return _21;
 case TNAttachedWindowGravityUp:
-objj_msgSend(_cursorView,"setFrame:",CPRectMake(CPRectGetWidth(objj_msgSend(_16,"frame"))/2-10,CPRectGetHeight(objj_msgSend(_16,"frame"))-16,20,10));
+objj_msgSend(_cursorView,"setFrame:",CPRectMake(CPRectGetWidth(objj_msgSend(_16,"frame"))/2-10,CPRectGetHeight(objj_msgSend(_16,"frame"))-14,20,10));
 objj_msgSend(_cursorView,"setImage:",_cursorBackgroundBottom);
 return _20;
 }
@@ -851,35 +851,41 @@ var _40=objj_msgSend(objj_msgSend(CPToolbarItem,"alloc"),"initWithItemIdentifier
 return (objj_msgSend(_toolbarItems,"objectForKey:",_3e))?objj_msgSend(_toolbarItems,"objectForKey:",_3e):_40;
 }
 })]);
-p;11;TNToolTip.jt;1289;@STATIC;1.0;i;18;TNAttachedWindow.jt;1247;
+p;11;TNToolTip.jt;1621;@STATIC;1.0;i;18;TNAttachedWindow.jt;1579;
 objj_executeFile("TNAttachedWindow.j",YES);
 var _1=objj_allocateClassPair(TNAttachedWindow,"TNToolTip"),_2=_1.isa;
 class_addIvars(_1,[new objj_ivar("_content")]);
 objj_registerClassPair(_1);
-class_addMethods(_1,[new objj_method(sel_getUid("initWithString:"),function(_3,_4,_5){
+class_addMethods(_1,[new objj_method(sel_getUid("initWithString:themeColor:"),function(_3,_4,_5,_6){
 with(_3){
-if(_3=objj_msgSendSuper({receiver:_3,super_class:objj_getClass("TNToolTip").super_class},"initWithContentRect:",CPRectMake(0,0,200,0))){
+if(_3=objj_msgSendSuper({receiver:_3,super_class:objj_getClass("TNToolTip").super_class},"initWithContentRect:themeColor:",CPRectMake(0,0,200,0),_6)){
 _content=objj_msgSend(CPTextField,"labelWithTitle:",_5);
-var _6=objj_msgSend(_5,"sizeWithFont:inWidth:",objj_msgSend(_content,"font"),200);
-_6.height+=5;
+var _7=objj_msgSend(_5,"sizeWithFont:inWidth:",objj_msgSend(_content,"font"),200);
+_7.height+=5;
 objj_msgSend(_content,"setLineBreakMode:",CPLineBreakByWordWrapping);
-objj_msgSend(_content,"setFrameSize:",_6);
+objj_msgSend(_content,"setFrameSize:",_7);
 objj_msgSend(_content,"setFrameOrigin:",CPPointMake(20,20));
-_6.width+=30;
-_6.height+=40;
+_7.width+=30;
+_7.height+=40;
 objj_msgSend(objj_msgSend(_3,"contentView"),"addSubview:",_content);
-objj_msgSend(_3,"setFrameSize:",_6);
+objj_msgSend(_3,"setFrameSize:",_7);
 objj_msgSend(_3,"setMovableByWindowBackground:",NO);
 objj_msgSend(_3,"setUseCloseButton:",NO);
 }
 return _3;
 }
 })]);
-class_addMethods(_2,[new objj_method(sel_getUid("toolTipWithString:forView:"),function(_7,_8,_9,_a){
-with(_7){
-var _b=objj_msgSend(objj_msgSend(TNToolTip,"alloc"),"initWithString:",_9);
-objj_msgSend(_b,"attachToView:",_a);
-return _b;
+class_addMethods(_2,[new objj_method(sel_getUid("toolTipWithString:forView:"),function(_8,_9,_a,_b){
+with(_8){
+var _c=objj_msgSend(objj_msgSend(TNToolTip,"alloc"),"initWithString:themeColor:",_a,TNAttachedWindowThemeWhite);
+objj_msgSend(_c,"attachToView:",_b);
+return _c;
+}
+}),new objj_method(sel_getUid("blackToolTipWithString:forView:"),function(_d,_e,_f,_10){
+with(_d){
+var _11=objj_msgSend(objj_msgSend(TNToolTip,"alloc"),"initWithString:themeColor:",_f,TNAttachedWindowThemeBlack);
+objj_msgSend(_11,"attachToView:",_10);
+return _11;
 }
 })]);
 p;16;TNUserDefaults.jt;9506;@STATIC;1.0;I;23;Foundation/Foundation.jt;9459;
