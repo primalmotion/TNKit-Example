@@ -307,7 +307,7 @@ objj_msgSend(_contents,"sortUsingDescriptors:",objj_msgSend(_4b,"sortDescriptors
 objj_msgSend(_4b,"reloadData");
 }
 })]);
-p;19;TNQuickEditWindow.jt;9834;@STATIC;1.0;I;23;Foundation/Foundation.jI;15;AppKit/AppKit.jt;9767;
+p;19;TNQuickEditWindow.jt;10031;@STATIC;1.0;I;23;Foundation/Foundation.jI;15;AppKit/AppKit.jt;9964;
 objj_executeFile("Foundation/Foundation.j",NO);
 objj_executeFile("AppKit/AppKit.j",NO);
 TNQuickEditWindowGravityUp=0;
@@ -315,6 +315,8 @@ TNQuickEditWindowGravityDown=1;
 TNQuickEditWindowGravityLeft=2;
 TNQuickEditWindowGravityRight=3;
 TNQuickEditWindowGravityAuto=4;
+TNQuickEditWindowThemeWhite="White";
+TNQuickEditWindowThemeBlack="Black";
 var _1=objj_allocateClassPair(CPWindow,"TNQuickEditWindow"),_2=_1.isa;
 class_addIvars(_1,[new objj_ivar("_cursorView"),new objj_ivar("_cursorBackgroundLeft"),new objj_ivar("_cursorBackgroundRight"),new objj_ivar("_cursorBackgroundTop"),new objj_ivar("_cursorBackgroundBottom"),new objj_ivar("_closeButton"),new objj_ivar("_targetView")]);
 objj_registerClassPair(_1);
@@ -328,144 +330,148 @@ _targetView=_7;
 }
 }),new objj_method(sel_getUid("initWithContentRect:"),function(_8,_9,_a){
 with(_8){
-if(_8=objj_msgSendSuper({receiver:_8,super_class:objj_getClass("TNQuickEditWindow").super_class},"initWithContentRect:styleMask:",_a,CPBorderlessWindowMask)){
-var _b=objj_msgSend(CPBundle,"bundleForClass:",objj_msgSend(_8,"class")),_c=objj_msgSend(objj_msgSend(CPNinePartImage,"alloc"),"initWithImageSlices:",[objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_b,"pathForResource:","quick-edit-view/quick-edit-view-top-left.png"),CPSizeMake(20,20)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_b,"pathForResource:","quick-edit-view/quick-edit-view-top.png"),CPSizeMake(1,20)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_b,"pathForResource:","quick-edit-view/quick-edit-view-top-right.png"),CPSizeMake(20,20)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_b,"pathForResource:","quick-edit-view/quick-edit-view-left.png"),CPSizeMake(20,1)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_b,"pathForResource:","quick-edit-view/quick-edit-view-center.png"),CPSizeMake(1,1)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_b,"pathForResource:","quick-edit-view/quick-edit-view-right.png"),CPSizeMake(20,1)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_b,"pathForResource:","quick-edit-view/quick-edit-view-bottom-left.png"),CPSizeMake(20,20)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_b,"pathForResource:","quick-edit-view/quick-edit-view-bottom.png"),CPSizeMake(1,20)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_b,"pathForResource:","quick-edit-view/quick-edit-view-bottom-right.png"),CPSizeMake(20,20))]),_d=objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_b,"pathForResource:","quick-edit-view/quick-edit-view-button-close.png"),CPSizeMake(15,15)),_e=objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_b,"pathForResource:","quick-edit-view/quick-edit-view-button-close-pressed.png"),CPSizeMake(15,15));
-_closeButton=objj_msgSend(objj_msgSend(CPButton,"alloc"),"initWithFrame:",CPRectMake(_a.size.width-17-12,15,14,15));
+_8=objj_msgSend(_8,"initWithContentRect:themeColor:",_a,TNQuickEditWindowThemeWhite);
+return _8;
+}
+}),new objj_method(sel_getUid("initWithContentRect:themeColor:"),function(_b,_c,_d,_e){
+with(_b){
+if(_b=objj_msgSendSuper({receiver:_b,super_class:objj_getClass("TNQuickEditWindow").super_class},"initWithContentRect:styleMask:",_d,CPBorderlessWindowMask)){
+var _f=objj_msgSend(CPBundle,"bundleForClass:",objj_msgSend(_b,"class")),_10=objj_msgSend(objj_msgSend(CPNinePartImage,"alloc"),"initWithImageSlices:",[objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNQuickEditWindow/"+_e+"/quick-edit-view-top-left.png"),CPSizeMake(20,20)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNQuickEditWindow/"+_e+"/quick-edit-view-top.png"),CPSizeMake(1,20)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNQuickEditWindow/"+_e+"/quick-edit-view-top-right.png"),CPSizeMake(20,20)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNQuickEditWindow/"+_e+"/quick-edit-view-left.png"),CPSizeMake(20,1)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNQuickEditWindow/"+_e+"/quick-edit-view-center.png"),CPSizeMake(1,1)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNQuickEditWindow/"+_e+"/quick-edit-view-right.png"),CPSizeMake(20,1)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNQuickEditWindow/"+_e+"/quick-edit-view-bottom-left.png"),CPSizeMake(20,20)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNQuickEditWindow/"+_e+"/quick-edit-view-bottom.png"),CPSizeMake(1,20)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNQuickEditWindow/"+_e+"/quick-edit-view-bottom-right.png"),CPSizeMake(20,20))]),_11=objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNQuickEditWindow/quick-edit-view-button-close.png"),CPSizeMake(15,15)),_12=objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNQuickEditWindow/quick-edit-view-button-close-pressed.png"),CPSizeMake(15,15));
+_closeButton=objj_msgSend(objj_msgSend(CPButton,"alloc"),"initWithFrame:",CPRectMake(_d.size.width-17-12,15,14,15));
 objj_msgSend(_closeButton,"setAutoresizingMask:",CPViewMinXMargin);
 objj_msgSend(_closeButton,"setImageScaling:",CPScaleProportionally);
 objj_msgSend(_closeButton,"setBordered:",NO);
-objj_msgSend(_closeButton,"setValue:forThemeAttribute:",_d,"image");
-objj_msgSend(_closeButton,"setValue:forThemeAttribute:inState:",_e,"image",CPThemeStateHighlighted);
-objj_msgSend(_closeButton,"setTarget:",_8);
+objj_msgSend(_closeButton,"setValue:forThemeAttribute:",_11,"image");
+objj_msgSend(_closeButton,"setValue:forThemeAttribute:inState:",_12,"image",CPThemeStateHighlighted);
+objj_msgSend(_closeButton,"setTarget:",_b);
 objj_msgSend(_closeButton,"setAction:",sel_getUid("close:"));
-objj_msgSend(objj_msgSend(_8,"contentView"),"addSubview:",_closeButton);
-_cursorBackgroundLeft=objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_b,"pathForResource:","quick-edit-view/quick-edit-view-arrow-left.png"),CPSizeMake(20,20));
-_cursorBackgroundRight=objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_b,"pathForResource:","quick-edit-view/quick-edit-view-arrow-right.png"),CPSizeMake(20,20));
-_cursorBackgroundTop=objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_b,"pathForResource:","quick-edit-view/quick-edit-view-arrow-top.png"),CPSizeMake(20,20));
-_cursorBackgroundBottom=objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_b,"pathForResource:","quick-edit-view/quick-edit-view-arrow-bottom.png"),CPSizeMake(20,20));
-_cursorView=objj_msgSend(objj_msgSend(CPImageView,"alloc"),"initWithFrame:",CPRectMake(0,CPRectGetHeight(_a)/2-10,20,20));
-objj_msgSend(_cursorView,"setImageScaling:",CPScaleProportionally);
-objj_msgSend(_cursorView,"setImage:",_cursorBackgroundLeft);
-objj_msgSend(objj_msgSend(_8,"contentView"),"setBackgroundColor:",objj_msgSend(CPColor,"colorWithPatternImage:",_c));
-objj_msgSend(objj_msgSend(_8,"contentView"),"addSubview:",_cursorView);
-objj_msgSend(_8,"setMovableByWindowBackground:",YES);
-objj_msgSend(objj_msgSend(CPNotificationCenter,"defaultCenter"),"addObserver:selector:name:object:",_8,sel_getUid("_editWindowDidMove:"),CPWindowDidMoveNotification,_8);
+objj_msgSend(objj_msgSend(_b,"contentView"),"addSubview:",_closeButton);
+_cursorBackgroundLeft=objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:",objj_msgSend(_f,"pathForResource:","TNQuickEditWindow/"+_e+"/quick-edit-view-arrow-left.png"));
+_cursorBackgroundRight=objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:",objj_msgSend(_f,"pathForResource:","TNQuickEditWindow/"+_e+"/quick-edit-view-arrow-right.png"));
+_cursorBackgroundTop=objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:",objj_msgSend(_f,"pathForResource:","TNQuickEditWindow/"+_e+"/quick-edit-view-arrow-top.png"));
+_cursorBackgroundBottom=objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:",objj_msgSend(_f,"pathForResource:","TNQuickEditWindow/"+_e+"/quick-edit-view-arrow-bottom.png"));
+_cursorView=objj_msgSend(objj_msgSend(CPImageView,"alloc"),"initWithFrame:",CPRectMakeZero());
+objj_msgSend(objj_msgSend(_b,"contentView"),"setBackgroundColor:",objj_msgSend(CPColor,"colorWithPatternImage:",_10));
+objj_msgSend(objj_msgSend(_b,"contentView"),"addSubview:",_cursorView);
+objj_msgSend(_b,"setLevel:",CPStatusWindowLevel);
+objj_msgSend(_b,"setMovableByWindowBackground:",YES);
+objj_msgSend(objj_msgSend(CPNotificationCenter,"defaultCenter"),"addObserver:selector:name:object:",_b,sel_getUid("_editWindowDidMove:"),CPWindowDidMoveNotification,_b);
 }
-return _8;
+return _b;
 }
-}),new objj_method(sel_getUid("setUseCloseButton:"),function(_f,_10,_11){
-with(_f){
-_useCloseButton=_11;
-objj_msgSend(_closeButton,"setHidden:",!_11);
+}),new objj_method(sel_getUid("setUseCloseButton:"),function(_13,_14,_15){
+with(_13){
+_useCloseButton=_15;
+objj_msgSend(_closeButton,"setHidden:",!_15);
 }
-}),new objj_method(sel_getUid("computeOrigin:gravity:"),function(_12,_13,_14,_15){
-with(_12){
-var _16=objj_msgSend(_14,"frame"),_17=_14,_18=objj_msgSend(_14,"frameOrigin"),_19;
-while(_17=objj_msgSend(_17,"superview")){
-_18.x+=objj_msgSend(_17,"frameOrigin").x;
-_18.y+=objj_msgSend(_17,"frameOrigin").y;
-_19=_17;
+}),new objj_method(sel_getUid("computeOrigin:gravity:"),function(_16,_17,_18,_19){
+with(_16){
+var _1a=objj_msgSend(_18,"frame"),_1b=_18,_1c=objj_msgSend(_18,"frameOrigin"),_1d;
+while(_1b=objj_msgSend(_1b,"superview")){
+_1c.x+=objj_msgSend(_1b,"frameOrigin").x;
+_1c.y+=objj_msgSend(_1b,"frameOrigin").y;
+_1d=_1b;
 }
-_18.x+=objj_msgSend(objj_msgSend(_19,"window"),"frame").origin.x;
-_18.y+=objj_msgSend(objj_msgSend(_19,"window"),"frame").origin.y;
-var _1a=CPPointCreateCopy(_18),_1b=CPPointCreateCopy(_18),_1c=CPPointCreateCopy(_18),_1d=CPPointCreateCopy(_18);
-_1b.x+=CPRectGetWidth(_16);
-_1b.y+=(CPRectGetHeight(_16)/2)-(CPRectGetHeight(objj_msgSend(_12,"frame"))/2);
-_1a.x-=CPRectGetWidth(objj_msgSend(_12,"frame"));
-_1a.y+=(CPRectGetHeight(_16)/2)-(CPRectGetHeight(objj_msgSend(_12,"frame"))/2);
-_1d.x+=CPRectGetWidth(_16)/2-CPRectGetWidth(objj_msgSend(_12,"frame"))/2;
-_1d.y+=CPRectGetHeight(_16);
-_1c.x+=CPRectGetWidth(_16)/2-CPRectGetWidth(objj_msgSend(_12,"frame"))/2;
-_1c.y-=CPRectGetHeight(objj_msgSend(_12,"frame"));
-if(_15===TNQuickEditWindowGravityAuto){
-var _1e=objj_msgSend(objj_msgSend(objj_msgSend(_19,"window"),"platformWindow"),"nativeContentRect"),_1f=CPRectCreateCopy(objj_msgSend(_12,"frame"));
-_1e.origin.x=0;
-_1e.origin.y=0;
-var _20=[_1b,_1a,_1c,_1d];
-for(var i=0;i<_20.length;i++){
-_1f.origin=_20[i];
-if(CPRectContainsRect(_1e,_1f)){
-if(CPPointEqualToPoint(_20[i],_1b)){
-_15=TNQuickEditWindowGravityRight;
+_1c.x+=objj_msgSend(objj_msgSend(_1d,"window"),"frame").origin.x;
+_1c.y+=objj_msgSend(objj_msgSend(_1d,"window"),"frame").origin.y;
+var _1e=CPPointCreateCopy(_1c),_1f=CPPointCreateCopy(_1c),_20=CPPointCreateCopy(_1c),_21=CPPointCreateCopy(_1c);
+_1f.x+=CPRectGetWidth(_1a);
+_1f.y+=(CPRectGetHeight(_1a)/2)-(CPRectGetHeight(objj_msgSend(_16,"frame"))/2);
+_1e.x-=CPRectGetWidth(objj_msgSend(_16,"frame"));
+_1e.y+=(CPRectGetHeight(_1a)/2)-(CPRectGetHeight(objj_msgSend(_16,"frame"))/2);
+_21.x+=CPRectGetWidth(_1a)/2-CPRectGetWidth(objj_msgSend(_16,"frame"))/2;
+_21.y+=CPRectGetHeight(_1a);
+_20.x+=CPRectGetWidth(_1a)/2-CPRectGetWidth(objj_msgSend(_16,"frame"))/2;
+_20.y-=CPRectGetHeight(objj_msgSend(_16,"frame"));
+if(_19===TNQuickEditWindowGravityAuto){
+var _22=objj_msgSend(objj_msgSend(objj_msgSend(_1d,"window"),"platformWindow"),"nativeContentRect"),_23=CPRectCreateCopy(objj_msgSend(_16,"frame"));
+_22.origin.x=0;
+_22.origin.y=0;
+var _24=[_1f,_1e,_20,_21];
+for(var i=0;i<_24.length;i++){
+_23.origin=_24[i];
+if(CPRectContainsRect(_22,_23)){
+if(CPPointEqualToPoint(_24[i],_1f)){
+_19=TNQuickEditWindowGravityRight;
 }else{
-if(CPPointEqualToPoint(_20[i],_1a)){
-_15=TNQuickEditWindowGravityLeft;
+if(CPPointEqualToPoint(_24[i],_1e)){
+_19=TNQuickEditWindowGravityLeft;
 }else{
-if(CPPointEqualToPoint(_20[i],_1c)){
-_15=TNQuickEditWindowGravityUp;
+if(CPPointEqualToPoint(_24[i],_20)){
+_19=TNQuickEditWindowGravityUp;
 }else{
-if(CPPointEqualToPoint(_20[i],_1d)){
-_15=TNQuickEditWindowGravityDown;
+if(CPPointEqualToPoint(_24[i],_21)){
+_19=TNQuickEditWindowGravityDown;
 }
 }
 }
 }
 break;
 }else{
-_15=TNQuickEditWindowGravityRight;
+_19=TNQuickEditWindowGravityRight;
 }
 }
 }
-switch(_15){
+switch(_19){
 case TNQuickEditWindowGravityRight:
-objj_msgSend(_cursorView,"setFrameOrigin:",CPPointMake(0,CPRectGetHeight(objj_msgSend(_12,"frame"))/2-12));
+objj_msgSend(_cursorView,"setFrame:",CPRectMake(2,CPRectGetHeight(objj_msgSend(_16,"frame"))/2-12,10,20));
 objj_msgSend(_cursorView,"setImage:",_cursorBackgroundLeft);
-return _1b;
+return _1f;
 case TNQuickEditWindowGravityLeft:
-objj_msgSend(_cursorView,"setFrameOrigin:",CPPointMake(CPRectGetWidth(objj_msgSend(_12,"frame"))-17,CPRectGetHeight(objj_msgSend(_12,"frame"))/2-12));
+objj_msgSend(_cursorView,"setFrame:",CPRectMake(CPRectGetWidth(objj_msgSend(_16,"frame"))-11,CPRectGetHeight(objj_msgSend(_16,"frame"))/2-12,10,20));
 objj_msgSend(_cursorView,"setImage:",_cursorBackgroundRight);
-return _1a;
+return _1e;
 case TNQuickEditWindowGravityDown:
-objj_msgSend(_cursorView,"setFrameOrigin:",CPPointMake(CPRectGetWidth(objj_msgSend(_12,"frame"))/2-10,0));
+objj_msgSend(_cursorView,"setFrame:",CPRectMake(CPRectGetWidth(objj_msgSend(_16,"frame"))/2-10,2,20,10));
 objj_msgSend(_cursorView,"setImage:",_cursorBackgroundTop);
-return _1d;
+return _21;
 case TNQuickEditWindowGravityUp:
-objj_msgSend(_cursorView,"setFrameOrigin:",CPPointMake(CPRectGetWidth(objj_msgSend(_12,"frame"))/2-10,CPRectGetHeight(objj_msgSend(_12,"frame"))-20));
+objj_msgSend(_cursorView,"setFrame:",CPRectMake(CPRectGetWidth(objj_msgSend(_16,"frame"))/2-10,CPRectGetHeight(objj_msgSend(_16,"frame"))-16,20,10));
 objj_msgSend(_cursorView,"setImage:",_cursorBackgroundBottom);
-return _1c;
+return _20;
 }
 }
-}),new objj_method(sel_getUid("_editWindowDidMove:"),function(_21,_22,_23){
-with(_21){
+}),new objj_method(sel_getUid("_editWindowDidMove:"),function(_25,_26,_27){
+with(_25){
 if(_leftMouseDownView){
 objj_msgSend(_cursorView,"setHidden:",YES);
 }
 }
-}),new objj_method(sel_getUid("positionRelativeToView:"),function(_24,_25,_26){
-with(_24){
-objj_msgSend(_24,"positionRelativeToView:gravity:",_26,TNQuickEditWindowGravityAuto);
+}),new objj_method(sel_getUid("positionRelativeToView:"),function(_28,_29,_2a){
+with(_28){
+objj_msgSend(_28,"positionRelativeToView:gravity:",_2a,TNQuickEditWindowGravityAuto);
 }
-}),new objj_method(sel_getUid("positionRelativeToView:gravity:"),function(_27,_28,_29,_2a){
-with(_27){
-var _2b=objj_msgSend(_29,"frame"),_2c=_2b.origin.x+CPRectGetWidth(_2b),_2d=_2b.origin.y+(CPRectGetHeight(_2b)/2)-(CPRectGetHeight(objj_msgSend(_27,"frame"))/2),_2e=objj_msgSend(_27,"computeOrigin:gravity:",_29,_2a),_2f=0;
-if(_2e.y<0){
-_2f=_2e.y;
-_2e.y=0;
-var _30=objj_msgSend(_cursorView,"frameOrigin");
-_30.y+=_2f;
-objj_msgSend(_cursorView,"setFrameOrigin:",_30);
+}),new objj_method(sel_getUid("positionRelativeToView:gravity:"),function(_2b,_2c,_2d,_2e){
+with(_2b){
+var _2f=objj_msgSend(_2d,"frame"),_30=_2f.origin.x+CPRectGetWidth(_2f),_31=_2f.origin.y+(CPRectGetHeight(_2f)/2)-(CPRectGetHeight(objj_msgSend(_2b,"frame"))/2),_32=objj_msgSend(_2b,"computeOrigin:gravity:",_2d,_2e),_33=0;
+if(_32.y<0){
+_33=_32.y;
+_32.y=0;
+var _34=objj_msgSend(_cursorView,"frameOrigin");
+_34.y+=_33;
+objj_msgSend(_cursorView,"setFrameOrigin:",_34);
 }
-objj_msgSend(_27,"setFrameOrigin:",_2e);
-objj_msgSend(_27,"makeKeyAndOrderFront:",nil);
+objj_msgSend(_2b,"setFrameOrigin:",_32);
+objj_msgSend(_2b,"makeKeyAndOrderFront:",nil);
 }
-}),new objj_method(sel_getUid("attachToView:"),function(_31,_32,_33){
-with(_31){
-_targetView=_33;
-objj_msgSend(_31,"positionRelativeToView:",_targetView);
+}),new objj_method(sel_getUid("attachToView:"),function(_35,_36,_37){
+with(_35){
+_targetView=_37;
+objj_msgSend(_35,"positionRelativeToView:",_targetView);
 }
-}),new objj_method(sel_getUid("close:"),function(_34,_35,_36){
-with(_34){
-objj_msgSend(_34,"close");
+}),new objj_method(sel_getUid("close:"),function(_38,_39,_3a){
+with(_38){
+objj_msgSend(_38,"close");
 if(_delegate&&objj_msgSend(_delegate,"respondsToSelected:",sel_getUid("didQuickEditViewClose:"))){
-objj_msgSend(_delegate,"didQuickEditViewClose:",_34);
+objj_msgSend(_delegate,"didQuickEditViewClose:",_38);
 }
 }
 })]);
-class_addMethods(_2,[new objj_method(sel_getUid("quickEditWindowWithSize:forView:"),function(_37,_38,_39,_3a){
-with(_37){
-var _3b=objj_msgSend(objj_msgSend(TNQuickEditWindow,"alloc"),"initWithContentRect:",CPRectMake(0,0,_39.width,_39.height));
-objj_msgSend(_3b,"attachToView:",_3a);
-return _3b;
+class_addMethods(_2,[new objj_method(sel_getUid("quickEditWindowWithSize:forView:"),function(_3b,_3c,_3d,_3e){
+with(_3b){
+var _3f=objj_msgSend(objj_msgSend(TNQuickEditWindow,"alloc"),"initWithContentRect:",CPRectMake(0,0,_3d.width,_3d.height));
+objj_msgSend(_3f,"attachToView:",_3e);
+return _3f;
 }
 })]);
 p;23;TNTableViewDataSource.jt;6104;@STATIC;1.0;t;6085;
