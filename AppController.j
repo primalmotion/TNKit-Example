@@ -94,8 +94,8 @@
         bundle  = [CPBundle mainBundle];
     
     
-    [toolbar addItemWithIdentifier:@"id1" label:@"Hello" icon:[bundle pathForResource:@"item1.png"] target:self action:@selector(didToolbarItemClick:)];
-    [toolbar addItemWithIdentifier:@"id2" label:@"World" icon:[bundle pathForResource:@"item2.png"] target:self action:@selector(didToolbarItemClick:)];
+    [toolbar addItemWithIdentifier:@"id1" label:@"Archipel" icon:[bundle pathForResource:@"item1.png"] target:self action:@selector(didToolbarItemClick:)];
+    [toolbar addItemWithIdentifier:@"id2" label:@"Logout" icon:[bundle pathForResource:@"item2.png"] target:self action:@selector(didToolbarItemClick:)];
     
     [toolbar setPosition:1 forToolbarItemIdentifier:@"id1"];
     [toolbar setPosition:2 forToolbarItemIdentifier:@"id2"];
