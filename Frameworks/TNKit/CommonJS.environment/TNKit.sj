@@ -99,7 +99,7 @@ objj_msgSendSuper({receiver:_3,super_class:objj_getClass("TNAnimation").super_cl
 objj_msgSend(_3,"currentValue");
 }
 })]);
-p;7;TNKit.jt;485;@STATIC;1.0;i;20;TNTextFieldStepper.ji;13;TNAnimation.ji;25;TNOutlineViewDataSource.ji;23;TNTableViewDataSource.ji;16;TNUserDefaults.ji;9;TNAlert.ji;19;TNQuickEditWindow.jt;308;
+p;7;TNKit.jt;538;@STATIC;1.0;i;20;TNTextFieldStepper.ji;13;TNAnimation.ji;25;TNOutlineViewDataSource.ji;23;TNTableViewDataSource.ji;16;TNUserDefaults.ji;9;TNAlert.ji;19;TNQuickEditWindow.ji;11;TNToolbar.jt;345;
 objj_executeFile("TNTextFieldStepper.j",YES);
 objj_executeFile("TNAnimation.j",YES);
 objj_executeFile("TNOutlineViewDataSource.j",YES);
@@ -107,6 +107,7 @@ objj_executeFile("TNTableViewDataSource.j",YES);
 objj_executeFile("TNUserDefaults.j",YES);
 objj_executeFile("TNAlert.j",YES);
 objj_executeFile("TNQuickEditWindow.j",YES);
+objj_executeFile("TNToolbar.j",YES);
 p;25;TNOutlineViewDataSource.jt;4537;@STATIC;1.0;I;23;Foundation/Foundation.jI;15;AppKit/AppKit.jt;4470;
 objj_executeFile("Foundation/Foundation.j",NO);
 objj_executeFile("AppKit/AppKit.j",NO);
@@ -576,6 +577,115 @@ return _1e;
 with(_21){
 objj_msgSendSuper({receiver:_21,super_class:objj_getClass("TNTextFieldStepper").super_class},"encodeWithCoder:",_23);
 objj_msgSend(_23,"encodeObject:forKey:",_textField,"_textField");
+}
+})]);
+p;11;TNToolbar.jt;5586;@STATIC;1.0;I;23;Foundation/Foundation.jI;15;AppKit/AppKit.jt;5519;
+objj_executeFile("Foundation/Foundation.j",NO);
+objj_executeFile("AppKit/AppKit.j",NO);
+var _1=objj_allocateClassPair(CPToolbar,"TNToolbar"),_2=_1.isa;
+class_addIvars(_1,[new objj_ivar("_sortedToolbarItems"),new objj_ivar("_toolbarItems"),new objj_ivar("_toolbarItemsOrder"),new objj_ivar("_imageViewSelection"),new objj_ivar("_iconSelected")]);
+objj_registerClassPair(_1);
+class_addMethods(_1,[new objj_method(sel_getUid("init"),function(_3,_4){
+with(_3){
+if(_3=objj_msgSendSuper({receiver:_3,super_class:objj_getClass("TNToolbar").super_class},"init")){
+var _5=objj_msgSend(CPBundle,"bundleForClass:",objj_msgSend(_3,"class"));
+_toolbarItems=objj_msgSend(CPDictionary,"dictionary");
+_toolbarItemsOrder=objj_msgSend(CPDictionary,"dictionary");
+_imageViewSelection=objj_msgSend(objj_msgSend(CPImageView,"alloc"),"initWithFrame:",CPRectMake(0,0,60,60));
+_iconSelected=NO;
+var _6=objj_msgSend(objj_msgSend(CPThreePartImage,"alloc"),"initWithImageSlices:isVertical:",[objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_5,"pathForResource:","TNToolbar/toolbar-item-selected-left.png"),CPSizeMake(2,60)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_5,"pathForResource:","TNToolbar/toolbar-item-selected-center.png"),CPSizeMake(1,60)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_5,"pathForResource:","TNToolbar/toolbar-item-selected-right.png"),CPSizeMake(2,60))],NO);
+objj_msgSend(_imageViewSelection,"setBackgroundColor:",objj_msgSend(CPColor,"colorWithPatternImage:",_6));
+objj_msgSend(_3,"setDelegate:",_3);
+}
+return _3;
+}
+}),new objj_method(sel_getUid("addItemWithIdentifier:label:icon:target:action:"),function(_7,_8,_9,_a,_b,_c,_d){
+with(_7){
+var _e=objj_msgSend(objj_msgSend(CPToolbarItem,"alloc"),"initWithItemIdentifier:",_9);
+objj_msgSend(_e,"setLabel:",_a);
+objj_msgSend(_e,"setImage:",objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",_b,CPSizeMake(32,32)));
+objj_msgSend(_e,"setTarget:",_c);
+objj_msgSend(_e,"setAction:",_d);
+objj_msgSend(_toolbarItems,"setObject:forKey:",_e,_9);
+}
+}),new objj_method(sel_getUid("addItem:withIdentifier:"),function(_f,_10,_11,_12){
+with(_f){
+objj_msgSend(_toolbarItems,"setObject:forKey:",_11,_12);
+}
+}),new objj_method(sel_getUid("addItemWithIdentifier:label:view:target:action:"),function(_13,_14,_15,_16,_17,_18,_19){
+with(_13){
+var _1a=objj_msgSend(objj_msgSend(CPToolbarItem,"alloc"),"initWithItemIdentifier:",_15);
+objj_msgSend(_1a,"setLabel:",_16);
+objj_msgSend(_1a,"setView:",_17);
+objj_msgSend(_1a,"setTarget:",_18);
+objj_msgSend(_1a,"setAction:",_19);
+objj_msgSend(_toolbarItems,"setObject:forKey:",_1a,_15);
+return _1a;
+}
+}),new objj_method(sel_getUid("setPosition:forToolbarItemIdentifier:"),function(_1b,_1c,_1d,_1e){
+with(_1b){
+objj_msgSend(_toolbarItemsOrder,"setObject:forKey:",_1e,_1d);
+}
+}),new objj_method(sel_getUid("_reloadToolbarItems"),function(_1f,_20){
+with(_1f){
+var _21=function(a,b,_22){
+var _23=a,_24=b;
+if(a<b){
+return CPOrderedAscending;
+}else{
+if(a>b){
+return CPOrderedDescending;
+}else{
+return CPOrderedSame;
+}
+}
+},_25=objj_msgSend(objj_msgSend(_toolbarItemsOrder,"allKeys"),"sortedArrayUsingFunction:",_21);
+_sortedToolbarItems=objj_msgSend(CPArray,"array");
+for(var i=0;i<objj_msgSend(_25,"count");i++){
+var key=objj_msgSend(_25,"objectAtIndex:",i);
+objj_msgSend(_sortedToolbarItems,"addObject:",objj_msgSend(_toolbarItemsOrder,"objectForKey:",key));
+}
+objj_msgSendSuper({receiver:_1f,super_class:objj_getClass("TNToolbar").super_class},"_reloadToolbarItems");
+if(_iconSelected){
+objj_msgSend(_toolbarView,"addSubview:positioned:relativeTo:",_imageViewSelection,CPWindowBelow,nil);
+}
+}
+}),new objj_method(sel_getUid("reloadToolbarItems"),function(_26,_27){
+with(_26){
+objj_msgSend(_26,"_reloadToolbarItems");
+}
+}),new objj_method(sel_getUid("selectToolbarItem:"),function(_28,_29,_2a){
+with(_28){
+var _2b;
+for(var i=0;i<objj_msgSend(objj_msgSend(_toolbarView,"subviews"),"count");i++){
+_2b=objj_msgSend(objj_msgSend(_toolbarView,"subviews"),"objectAtIndex:",i);
+if(objj_msgSend(_2b._toolbarItem,"itemIdentifier")===objj_msgSend(_2a,"itemIdentifier")){
+break;
+}
+}
+var _2c=objj_msgSend(_2b,"convertRect:toView:",objj_msgSend(_2b,"bounds"),_toolbarView),_2d=objj_msgSend(objj_msgSend(_2a,"label"),"sizeWithFont:",objj_msgSend(CPFont,"boldSystemFontOfSize:",12));
+_iconSelected=YES;
+objj_msgSend(_imageViewSelection,"setFrameSize:",CGSizeMake(MAX(_2d.width+4,50),60));
+objj_msgSend(_imageViewSelection,"setFrameOrigin:",CGPointMake(CGRectGetMinX(_2c)+(CGRectGetWidth(_2c)-CGRectGetWidth(objj_msgSend(_imageViewSelection,"frame")))/2,0));
+objj_msgSend(_toolbarView,"addSubview:positioned:relativeTo:",_imageViewSelection,CPWindowBelow,nil);
+}
+}),new objj_method(sel_getUid("deselectToolbarItem"),function(_2e,_2f){
+with(_2e){
+_iconSelected=NO;
+objj_msgSend(_imageViewSelection,"removeFromSuperview");
+}
+}),new objj_method(sel_getUid("toolbarAllowedItemIdentifiers:"),function(_30,_31,_32){
+with(_30){
+return _sortedToolbarItems;
+}
+}),new objj_method(sel_getUid("toolbarDefaultItemIdentifiers:"),function(_33,_34,_35){
+with(_33){
+return _sortedToolbarItems;
+}
+}),new objj_method(sel_getUid("toolbar:itemForItemIdentifier:willBeInsertedIntoToolbar:"),function(_36,_37,_38,_39,_3a){
+with(_36){
+var _3b=objj_msgSend(objj_msgSend(CPToolbarItem,"alloc"),"initWithItemIdentifier:",_39);
+return (objj_msgSend(_toolbarItems,"objectForKey:",_39))?objj_msgSend(_toolbarItems,"objectForKey:",_39):_3b;
 }
 })]);
 p;16;TNUserDefaults.jt;9506;@STATIC;1.0;I;23;Foundation/Foundation.jt;9459;

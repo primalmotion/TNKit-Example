@@ -88,6 +88,20 @@
     
     [filterField setTarget:_datasource];
     [filterField setAction:@selector(filterObjects:)];
+    
+    // TNToolbar
+    var toolbar = [[TNToolbar alloc] init],
+        bundle  = [CPBundle mainBundle];
+    
+    
+    [toolbar addItemWithIdentifier:@"id1" label:@"Hello" icon:[bundle pathForResource:@"item1.png"] target:self action:@selector(didToolbarItemClick:)];
+    [toolbar addItemWithIdentifier:@"id2" label:@"World" icon:[bundle pathForResource:@"item2.png"] target:self action:@selector(didToolbarItemClick:)];
+    
+    [toolbar setPosition:1 forToolbarItemIdentifier:@"id1"];
+    [toolbar setPosition:2 forToolbarItemIdentifier:@"id2"];
+    
+    [toolbar reloadToolbarItems];
+    [theWindow setToolbar:toolbar];
 }
 
 
@@ -145,5 +159,10 @@
 - (void)performLooser:(id)someUserInfo
 {
     [TNAlert showAlertWithTitle:@"Hehe" message:@"Be a man!"];
+}
+
+- (IBAction)didToolbarItemClick:(id)sender
+{
+    [[sender toolbar] selectToolbarItem:sender];
 }
 @end
