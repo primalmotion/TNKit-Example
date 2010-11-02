@@ -6,15 +6,17 @@
  * Copyright 2010, Your Company All rights reserved.
  */
 
-@import <Foundation/CPObject.j>
+@import <Foundation/Foundation.j>
+@import <AppKit/AppKit.j>
 @import <TNKit/TNKit.j>
 
 
 @implementation AppController : CPObject
 {
     @outlet CPWindow            theWindow;
+    @outlet CPWindow            windowTooltip;
     @outlet CPButton            buttonShowQuickEditView;
-    @outlet CPButton            buttonShowQuickEditView2;
+    @outlet CPButton            buttonToolTip;
     @outlet CPTextField         title;
     @outlet CPTextField         fieldUserDefault;
     @outlet TNTextFieldStepper  stepper;
@@ -102,6 +104,10 @@
     
     [toolbar reloadToolbarItems];
     [theWindow setToolbar:toolbar];
+    
+    //TNToolTip
+    [buttonToolTip setToolTip:@"Hello world! I'm a tooltip!"];
+    [windowTooltip orderFront:nil];
 }
 
 
