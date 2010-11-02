@@ -754,7 +754,7 @@ _toolbarItems=objj_msgSend(CPDictionary,"dictionary");
 _toolbarItemsOrder=objj_msgSend(CPDictionary,"dictionary");
 _imageViewSelection=objj_msgSend(objj_msgSend(CPImageView,"alloc"),"initWithFrame:",CPRectMake(0,0,60,60));
 _iconSelected=NO;
-var _b=objj_msgSend(objj_msgSend(CPThreePartImage,"alloc"),"initWithImageSlices:isVertical:",[objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_a,"pathForResource:","TNToolbar/toolbar-item-selected-left.png"),CPSizeMake(2,60)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_a,"pathForResource:","TNToolbar/toolbar-item-selected-center.png"),CPSizeMake(1,60)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_a,"pathForResource:","TNToolbar/toolbar-item-selected-right.png"),CPSizeMake(2,60))],NO);
+var _b=objj_msgSend(objj_msgSend(CPThreePartImage,"alloc"),"initWithImageSlices:isVertical:",[objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_a,"pathForResource:","TNToolbar/toolbar-item-selected-left.png"),CPSizeMake(3,60)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_a,"pathForResource:","TNToolbar/toolbar-item-selected-center.png"),CPSizeMake(1,60)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_a,"pathForResource:","TNToolbar/toolbar-item-selected-right.png"),CPSizeMake(3,60))],NO);
 objj_msgSend(_imageViewSelection,"setBackgroundColor:",objj_msgSend(CPColor,"colorWithPatternImage:",_b));
 objj_msgSend(_8,"setDelegate:",_8);
 }
