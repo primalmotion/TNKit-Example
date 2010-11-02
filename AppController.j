@@ -53,9 +53,7 @@
     [defaults registerDefaults:[CPDictionary dictionaryWithObjectsAndKeys:
             @"Default", @"TNKitDefaultFieldValue"
     ]];
-    
-    
-    
+
     [fieldUserDefault setStringValue:[defaults objectForKey:@"TNKitDefaultFieldValue"]];
     
     
@@ -111,9 +109,9 @@
 }
 
 
-- (IBAction)showQuickEditView:(id)sender
+- (IBAction)showQuickEditViewWhite:(id)sender
 {
-    var quickEditView = [[TNQuickEditWindow alloc] initWithContentRect:CPRectMake(0.0, 0.0, 200.0, 150.0)],
+    var quickEditView = [[TNAttachedWindow alloc] initWithContentRect:CPRectMake(0.0, 0.0, 200.0, 150.0)],
         label = [CPTextField labelWithTitle:@"Hello World"];
 
     [label sizeToFit];
@@ -123,18 +121,18 @@
     [quickEditView attachToView:sender];
 }
 
-- (IBAction)showQuickEditViewOnTitle:(id)sender
+- (IBAction)showQuickEditViewDark:(id)sender
 {
-    var quickEditView = [[TNQuickEditWindow alloc] initWithContentRect:CPRectMake(0.0, 0.0, 200.0, 150.0)],
-        label = [CPTextField labelWithTitle:@"This is the title. Great isn't it?"];
+    var quickEditView = [[TNAttachedWindow alloc] initWithContentRect:CPRectMake(0.0, 0.0, 200.0, 150.0) themeColor:TNAttachedWindowThemeBlack],
+        label = [CPTextField labelWithTitle:@"Hello World"];
 
     [label sizeToFit];
+    [label setTextColor:[CPColor whiteColor]];
     [label setCenter:[[quickEditView contentView] center]];
     [[quickEditView contentView] addSubview:label];
     
-    [quickEditView attachToView:title];
+    [quickEditView attachToView:sender];
 }
-
 
 - (IBAction)saveDefault:(id)sender
 {
