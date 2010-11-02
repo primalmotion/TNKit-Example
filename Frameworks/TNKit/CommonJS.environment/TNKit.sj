@@ -99,7 +99,7 @@ objj_msgSendSuper({receiver:_3,super_class:objj_getClass("TNAnimation").super_cl
 objj_msgSend(_3,"currentValue");
 }
 })]);
-p;18;TNAttachedWindow.jt;10042;@STATIC;1.0;I;23;Foundation/Foundation.jI;15;AppKit/AppKit.jt;9975;
+p;18;TNAttachedWindow.jt;10018;@STATIC;1.0;I;23;Foundation/Foundation.jI;15;AppKit/AppKit.jt;9951;
 objj_executeFile("Foundation/Foundation.j",NO);
 objj_executeFile("AppKit/AppKit.j",NO);
 TNAttachedWindowGravityUp=0;
@@ -130,9 +130,9 @@ with(_b){
 if(_b=objj_msgSendSuper({receiver:_b,super_class:objj_getClass("TNAttachedWindow").super_class},"initWithContentRect:styleMask:",_d,CPBorderlessWindowMask)){
 var _f=objj_msgSend(CPBundle,"bundleForClass:",objj_msgSend(_b,"class")),_10=objj_msgSend(objj_msgSend(CPNinePartImage,"alloc"),"initWithImageSlices:",[objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNAttachedWindow/"+_e+"/attached-window-top-left.png"),CPSizeMake(20,20)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNAttachedWindow/"+_e+"/attached-window-top.png"),CPSizeMake(1,20)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNAttachedWindow/"+_e+"/attached-window-top-right.png"),CPSizeMake(20,20)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNAttachedWindow/"+_e+"/attached-window-left.png"),CPSizeMake(20,1)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNAttachedWindow/"+_e+"/attached-window-center.png"),CPSizeMake(1,1)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNAttachedWindow/"+_e+"/attached-window-right.png"),CPSizeMake(20,1)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNAttachedWindow/"+_e+"/attached-window-bottom-left.png"),CPSizeMake(20,20)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNAttachedWindow/"+_e+"/attached-window-bottom.png"),CPSizeMake(1,20)),objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNAttachedWindow/"+_e+"/attached-window-bottom-right.png"),CPSizeMake(20,20))]),_11=objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNAttachedWindow/"+_e+"/attached-window-button-close.png"),CPSizeMake(15,15)),_12=objj_msgSend(objj_msgSend(CPImage,"alloc"),"initWithContentsOfFile:size:",objj_msgSend(_f,"pathForResource:","TNAttachedWindow/"+_e+"/attached-window-button-close-pressed.png"),CPSizeMake(15,15));
 _closeButton=objj_msgSend(objj_msgSend(CPButton,"alloc"),"initWithFrame:",CPRectMake(15,15,14,14));
-objj_msgSend(_closeButton,"setAutoresizingMask:",CPViewMinXMargin);
 objj_msgSend(_closeButton,"setImageScaling:",CPScaleProportionally);
 objj_msgSend(_closeButton,"setBordered:",NO);
+objj_msgSend(_closeButton,"setImage:",_11);
 objj_msgSend(_closeButton,"setValue:forThemeAttribute:",_11,"image");
 objj_msgSend(_closeButton,"setValue:forThemeAttribute:inState:",_12,"image",CPThemeStateHighlighted);
 objj_msgSend(_closeButton,"setTarget:",_b);
